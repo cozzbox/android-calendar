@@ -1,3 +1,3 @@
 # android-sample-calendar
 
-Comming Soon.
+Coming Soon.
