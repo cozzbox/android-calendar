@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cozzbox.util.DateUtil;
 import com.cozzbox.util.DisplayUtil;
@@ -77,9 +78,6 @@ public class MainActivity extends ActionBarActivity {
         tvYM.setText(year + "/" + month);
         tvYM.setWidth(calWidth);
 
-        /**
-         *  calendar body create
-         */
         TableLayout tblCalendar = (TableLayout) findViewById(R.id.calendar_tbl_root);
         tblCalendar.removeAllViews();
 
@@ -104,17 +102,14 @@ public class MainActivity extends ActionBarActivity {
 
         ArrayList<String> calDayList = new ArrayList<String>(40);
 
-        // set brank cell
         for (int i=1; i<startWeek; i++) {
             calDayList.add("");
         }
 
-        // set day num
         for (int i=1; i<=endDay; i++) {
             calDayList.add(i+"");
         }
 
-        // set brank cell for last week
         int endWeek = calDayList.size() % 7;
         if (endWeek != 0) {
             for (int i=endWeek; i<=7; i++) {
@@ -127,7 +122,6 @@ public class MainActivity extends ActionBarActivity {
 
         for (String tmpDay: calDayList) {
 
-            // create next week line
             if (pos % 7 == 0) {
                 row = new TableRow(this);
                 tblCalendar.addView(row);
@@ -147,7 +141,9 @@ public class MainActivity extends ActionBarActivity {
             dayLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    String year_ = calendar.get(Calendar.YEAR) + "";
+                    String month_= (calendar.get(Calendar.MONTH) +1) + "";
+                    Toast.makeText(getApplicationContext(), year_+"/"+month_+"/"+v.getTag(), Toast.LENGTH_LONG).show();
                 }
             });
 
