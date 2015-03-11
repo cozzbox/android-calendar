@@ -3,6 +3,7 @@ package com.cozzbox.android_sample_calendar;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
@@ -170,8 +171,6 @@ public class MainActivity extends ActionBarActivity {
             dayLayout.addView(dayItemLayout);
             if (row != null) row.addView(dayLayout);
             pos++;
-
-            if (pos == endDay) break;
         }
 
         LinearLayout linerLayoutCal = (LinearLayout) findViewById(R.id.calendar_week_layout);
