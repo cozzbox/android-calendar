@@ -1,4 +1,4 @@
-# android-sample-calendar
+# android-calendar
 
 This is the sample application of calendar.
 
